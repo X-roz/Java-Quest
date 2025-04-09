@@ -5,7 +5,7 @@ public class ThreadPlay {
 
     /** Securing Vault from Hacker using Thread  **/
 
-    // 4 Digit pin
+    // MAX pin digit
     private static final int MAX_PIN = 9999;
 
     public static void main(String[] args){
