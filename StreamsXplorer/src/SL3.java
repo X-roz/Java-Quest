@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -56,11 +57,23 @@ public class SL3 {
             }
         };
 
-
         // Displaying numbers with custom defined variables
         numbers.stream()
                 .filter(evenPredicate)
                 .map(mappingFunction)
                 .forEach(printConsumer);
+
+        ///  Task 1 - Find Functional Interface behind the reduce method and create an implementation
+        System.out.println("***** TASK 1 *****");
+
+        BinaryOperator<Integer> binaryOperatorForSUM = new BinaryOperator<Integer>() {
+            @Override
+            public Integer apply(Integer n1, Integer n2) {
+                return n1+n2;
+            }
+        };
+
+         Integer sum = numbers.stream().reduce(0, binaryOperatorForSUM);
+         System.out.println(sum);
     }
 }
