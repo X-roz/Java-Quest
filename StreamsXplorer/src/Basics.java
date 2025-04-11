@@ -1,5 +1,6 @@
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class Basics {
     public static void main(String[] args) {
 
