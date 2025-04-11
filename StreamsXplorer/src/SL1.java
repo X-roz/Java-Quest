@@ -1,7 +1,7 @@
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class Basics {
+public class SL1 {
     public static void main(String[] args) {
 
         List<Integer> numbers = List.of(12,3,45,67,88,90,2,48);

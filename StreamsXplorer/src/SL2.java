@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.List;
 
-public class Basics2 {
+public class SL2 {
     public static void main(String[] args){
 
         List<Integer> numbers = List.of(12,9,13,4,6,2,4,12,15);
