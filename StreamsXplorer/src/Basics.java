@@ -4,11 +4,16 @@ public class Basics {
     public static void main(String[] args) {
 
         List<Integer> numbers = List.of(12,3,45,67,88,90,2,48);
+        List<String> courses = List.of("Spring", "Spring boot", "API", "Docker", "JPA", "Database", "AWS");
 
+        // Stream Basics and filters
         // printALlNumberStructuralPrograming(numbers);
         // printALlNumberFunctionalPrograming(numbers);
         // printEvenNumberStructuralPrograming(numbers);
         // printEvenNumberFunctionalPrograming(numbers);
+
+        // Streams Mapping
+        // printSquaredEvenNumberFunctionalProgramming(numbers);
 
         /// Task 1 - print only the odd numbers
         System.out.println("****** TASK 1 ******");
@@ -16,12 +21,19 @@ public class Basics {
 
         /// Task 2 - print Courses containing "Spring" only
         System.out.println("****** TASK 2 ******");
-        List<String> courses = List.of("Spring", "Spring boot", "API", "Docker", "JPA", "Database", "AWS");
         courses.stream().filter(c -> c.contains("Spring")).forEach(System.out::println);
 
         /// Task 3 - print Courses whose name has at least 4 letters
         System.out.println("****** TASK 3 ******");
         courses.stream().filter(c->c.length()>4).forEach(System.out::println);
+
+        /// Task 4 - print cubes of odd numbers
+        System.out.println("****** TASK 4 ******");
+        numbers.stream().filter(n -> !(n%2==0)).map(n->n*n*n).forEach(System.out::println);
+
+        /// Task 5 - print number of characters in each courses
+        System.out.println("****** TASK 5 ******");
+        courses.stream().map(c-> c +"  "+c.length()).forEach(System.out::println);
 
         }
 
@@ -45,7 +57,7 @@ public class Basics {
         System.out.println(n);
     }
 
-    // Functional Programing - stream through the list and prints it
+    // Functional Programing - convert list of elements into sequence/stream of elements and prints it
     public static void printALlNumberFunctionalPrograming(List<Integer> numbers){
 
         // numbers.stream().forEach(Basics::display);
@@ -59,6 +71,14 @@ public class Basics {
         numbers.stream()
                 .filter((n)-> n%2==0)
                 // Lambda Expression - with one statement it will return that statement's output otherwise we need to provide return statement.
+                .forEach(System.out::println);
+    }
+
+    // Functional Mapping
+    public static void printSquaredEvenNumberFunctionalProgramming(List<Integer> numbers) {
+        numbers.stream()
+                .filter(n-> n%2==0)
+                .map(n -> n * n)
                 .forEach(System.out::println);
     }
 
