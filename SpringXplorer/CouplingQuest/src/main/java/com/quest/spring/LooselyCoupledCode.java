@@ -118,4 +118,11 @@ public class LooselyCoupledCode {
      we can add or remove any games to the console.
      IOC - Inversion of Control - Now the full control is over the Game Console (because of its independent nature)
      */
+
+    /*
+     Even though, we are able to run multiple games using interface.
+     we need to assign the user's game choice with GameRunner and starts the game.
+     If the user wants to change the game we need to run the whole application again with the new user's game choice.
+     By using Spring framework, it will automatically take care of the initialization using Autowire annotation.
+    * */
 }
