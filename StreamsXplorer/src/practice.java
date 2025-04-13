@@ -51,6 +51,26 @@ public class practice {
          */
         // intermediate();
 
+        ///  Advance level
+        /*
+        1. Custom Collector to join strings with a delimiter
+        Join all names in a list with ; but in uppercase.
+
+        2. Map employees by department
+        Given a list of Employee objects (with fields: name, department), return a map of department to list of employees.
+
+        3. Sum of salaries by department
+        Input: List of Employees
+        Output: Map<Department, Total Salary>
+
+        4. Find top 3 highest scoring students
+        Input: List of Student(name, score)
+        Output: Top 3 based on score.
+
+        5. Partition integers into even and odd
+        Output: Map<Boolean, List<Integer>> where true → even, false → odd.
+        */
+
     }
 
     private static void intermediate(){
