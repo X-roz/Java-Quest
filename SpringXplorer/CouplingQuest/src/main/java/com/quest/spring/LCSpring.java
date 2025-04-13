@@ -48,6 +48,28 @@ public class LCSpring {
     }
 
     @Component
+    public static class Contra implements GameConsole {
+
+        // Contra operations for each buttons
+        public void up(){
+            System.out.println("Contra : Jump");
+        }
+
+        public void down(){
+            System.out.println("Contra : Stop");
+        }
+
+        public void left(){
+            System.out.println("Contra : Back");
+        }
+
+        public void right(){
+            System.out.println("Contra : Accelerate");
+        }
+
+    }
+
+    @Component
     public static class GameRunner {
 
         // Autowiring - Initialization of the GameConsole and based on user's preference game. That one will run from the multiple games
@@ -87,5 +109,37 @@ public class LCSpring {
         runner.start();
 
     }
+
+    /*
+    Logic behind the component annotations in Spring:
+
+    **************************  Scene 1 *************************************************************************
+    We have @Component in GameRunner class (It has constructor that initialize the GameConsole to start the game).
+    But we don't have @Component in any of the classes that implements GameConsole interface.
+
+    Error: Application Failed to start
+
+    Description:
+        Parameter 0 of constructor in com.quest.spring.LCSpring$GameRunner required
+        a bean of type 'com.quest.spring.LCSpring$GameConsole' that could not be found.
+
+    Action:
+        Consider defining a bean of type 'com.quest.spring.LCSpring$GameConsole' in your configuration.
+
+    ** To Initialize the GameRunner we need a bean (component class) of GameConsole with @Component. **
+
+    **************************  Scene 2 *************************************************************************
+    We have @Component in GameRunner class (It has constructor that initialize the GameConsole to start the game).
+    But we have @Component in two classes both Mario and Contra that implements GameConsole interface.
+
+    Description:
+        Parameter 0 of constructor in com.quest.spring.LCSpring$GameRunner required a single bean, but 2 were found:
+            - LCSpring.Contra: defined in file [C:\Users\HP\vk-works\Java-learnings\Java-Quest\SpringXplorer\CouplingQuest\target\classes\com\quest\spring\LCSpring$Contra.class]
+            - LCSpring.Mario: defined in file [C:\Users\HP\vk-works\Java-learnings\Java-Quest\SpringXplorer\CouplingQuest\target\classes\com\quest\spring\LCSpring$Mario.class]
+        This may be due to missing parameter name information
+
+    Action:
+        Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+     */
 
 }
