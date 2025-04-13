@@ -1,6 +1,6 @@
 package com.quest.spring;
 
-public class Main {
+public class TightlyCoupledCode {
 
     /// Let's try to create a gaming console which runs multiple games;
 
