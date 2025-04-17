@@ -2,8 +2,8 @@ public class Factory {
 
     public static void main(String [] args){
 
-        DatabaseFactory sqlDB = new SQLDatabase();
-        DatabaseFactory mysqlDB = new MySQLDatabase();
+        DbFactory sqlDB = new SQLDatabase();
+        DbFactory mysqlDB = new MySQLDatabase();
 
         sqlDB.createConnection();
         sqlDB.getData();
@@ -12,12 +12,12 @@ public class Factory {
     }
 }
 
-interface DatabaseFactory {
+interface DbFactory {
     void createConnection();
     void getData();
 }
 
-class SQLDatabase implements DatabaseFactory{
+class SQLDatabase implements DbFactory{
 
     @Override
     public void createConnection() {
@@ -30,7 +30,7 @@ class SQLDatabase implements DatabaseFactory{
     }
 }
 
-class MySQLDatabase implements DatabaseFactory{
+class MySQLDatabase implements DbFactory{
 
     @Override
     public void createConnection() {
