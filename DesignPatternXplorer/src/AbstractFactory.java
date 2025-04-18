@@ -23,8 +23,6 @@ public class AbstractFactory {
         dataSource.getNetworkFactory(Constants.CENTRAL_NETWORK).getJsonData();
         dataSource.getNetworkFactory(Constants.THIRD_PARTY_API).getJsonData();
     }
-
-
 }
 
 // Let's create a Datasource for our application from different regions
