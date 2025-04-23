@@ -66,9 +66,9 @@ public class practice {
         Input: List of Employees
         Output: Map<Department, Total Salary>
 
-        4. Find top 3 highest scoring students
-        Input: List of Student(name, score)
-        Output: Top 3 based on score.
+        4. Find top 3 highest earning employee
+        Input: List of Employee(name, salary)
+        Output: Top 3 based on salary.
 
         5. Partition integers into even and odd
         Output: Map<Boolean, List<Integer>> where true → even, false → odd.
@@ -104,6 +104,12 @@ public class practice {
                 )
         );
         System.out.println(sp);
+
+        System.out.println("***** A4 *****");
+        List<String> topHire = employeeList.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(3)
+                .map(Employee::getName).toList();
+        System.out.println(topHire);
+
     }
 
     @Getter
