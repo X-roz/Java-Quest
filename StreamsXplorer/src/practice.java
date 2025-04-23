@@ -70,7 +70,14 @@ public class practice {
         5. Partition integers into even and odd
         Output: Map<Boolean, List<Integer>> where true → even, false → odd.
         */
+        advance();
 
+    }
+
+    private static void advance() {
+        System.out.println("***** A1 *****");
+        List<String> strList = generateStringList();
+        System.out.println(String.join(";", strList).toUpperCase());
     }
 
     private static void intermediate(){
