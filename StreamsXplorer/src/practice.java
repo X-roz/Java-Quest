@@ -1,6 +1,9 @@
+import lombok.Getter;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
@@ -77,7 +80,32 @@ public class practice {
     private static void advance() {
         System.out.println("***** A1 *****");
         List<String> strList = generateStringList();
-        System.out.println(String.join(";", strList).toUpperCase());
+        System.out.println(strList.stream().map(String::toUpperCase).collect(Collectors.joining(";")));
+
+        System.out.println("***** A2 *****");
+        List<Employee> employeeList = List.of(
+                new Employee("Ryan", "CS"),
+                new Employee("Rave", "BIO-TECH"),
+                new Employee("Kim", "CS"),
+                new Employee("Vicky", "IT"),
+                new Employee("Sam", "CS")
+        );
+        Map<String,List<String>> dp = employeeList.stream().collect(
+                Collectors.groupingBy(Employee::getDepartment,
+                Collectors.mapping(Employee::getName, Collectors.toList())
+        ));
+        System.out.println(dp);
+    }
+
+    @Getter
+    static class Employee {
+        String name;
+        String department;
+
+        Employee(String name, String dep){
+            this.name = name;
+            this.department = dep;
+        }
     }
 
     private static void intermediate(){
