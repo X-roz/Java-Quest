@@ -84,27 +84,38 @@ public class practice {
 
         System.out.println("***** A2 *****");
         List<Employee> employeeList = List.of(
-                new Employee("Ryan", "CS"),
-                new Employee("Rave", "BIO-TECH"),
-                new Employee("Kim", "CS"),
-                new Employee("Vicky", "IT"),
-                new Employee("Sam", "CS")
+                new Employee("Ryan", "CS", 1200),
+                new Employee("Rave", "BIO-TECH",1300),
+                new Employee("Kim", "CS", 1500),
+                new Employee("Vicky", "IT", 100000000),
+                new Employee("Sam", "CS", 1988)
         );
         Map<String,List<String>> dp = employeeList.stream().collect(
                 Collectors.groupingBy(Employee::getDepartment,
                 Collectors.mapping(Employee::getName, Collectors.toList())
         ));
         System.out.println(dp);
+
+        System.out.println("***** A3 *****");
+        Map<String,Integer> sp =employeeList.stream().collect(
+                Collectors.groupingBy(
+                        Employee::getDepartment,
+                        Collectors.mapping(Employee::getSalary, Collectors.reducing(0, Integer::sum))
+                )
+        );
+        System.out.println(sp);
     }
 
     @Getter
     static class Employee {
         String name;
         String department;
+        int salary;
 
-        Employee(String name, String dep){
+        Employee(String name, String dep, int salary){
             this.name = name;
             this.department = dep;
+            this.salary = salary;
         }
     }
 
