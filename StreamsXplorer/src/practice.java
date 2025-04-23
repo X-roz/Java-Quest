@@ -3,7 +3,6 @@ import lombok.Getter;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
@@ -110,6 +109,13 @@ public class practice {
                 .map(Employee::getName).toList();
         System.out.println(topHire);
 
+        System.out.println("***** A5 *****");
+        List<Integer> randomList = generateRandomList();
+        Map<Boolean, List<Integer>> rp = randomList.stream().collect(
+                Collectors.groupingBy(X -> X % 2 == 0,
+                        Collectors.mapping(Function.identity(),Collectors.toList()))
+        );
+        System.out.println(rp);
     }
 
     @Getter
