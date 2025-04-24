@@ -14,22 +14,7 @@
     <packaging>pom</packaging>
     <name>SpringXplorer</name>
 	<description>project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-    <modules>
-        <module>CouplingQuest</module>
-    </modules>
-    <scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+
 	<properties>
 		<java.version>17</java.version>
 	</properties>
