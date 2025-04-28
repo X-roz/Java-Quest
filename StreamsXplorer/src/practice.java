@@ -196,7 +196,7 @@ public class practice {
 
     }
 
-    private static List<Integer> generateRandomList() {
+    public static List<Integer> generateRandomList() {
         Random random = new Random();
         Supplier<Integer> randSupplier = () -> random.nextInt(100);
         List<Integer> numbers = new ArrayList<>();
@@ -206,7 +206,7 @@ public class practice {
         return numbers;
     }
 
-    private static  List<String> generateStringList() {
+    public static  List<String> generateStringList() {
         return List.of("Spring", "Spring boot", "API", "Docker", "JPA", "Database", "AWS");
     }
 }
