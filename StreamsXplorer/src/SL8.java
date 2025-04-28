@@ -40,6 +40,10 @@ public class SL8 {
         courses.removeIf(c-> c.length()>3);
         System.out.println(courses);
 
+        /// Parallel Streams
+        System.out.println("**** Task 7 ****");
+        courses2.stream().parallel().forEach(System.out::println);
+
     }
 
     private static Predicate<String> courseFilterPredicate(int l) {
