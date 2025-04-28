@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class SL8 {
@@ -22,6 +23,15 @@ public class SL8 {
         System.out.println(courses.stream().flatMap(c ->
                 courses2.stream().filter(c2 -> c.length() == c2.length()).map(c2 -> List.of(c,c2)))
                 .filter(l -> !l.get(0).equals(l.get(1))).toList());
+
+        /// Higher order function - A function returns a function.
+        System.out.println("**** Task 4 ****");
+        System.out.println(courses.stream().filter(courseFilterPredicate(3)).toList());
+
+    }
+
+    private static Predicate<String> courseFilterPredicate(int l) {
+        return c -> c.length() > l;
     }
 
 }
