@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -7,7 +9,7 @@ public class SL8 {
 
     public static void main(String[] args) {
 
-        List<String> courses = practice.generateStringList();
+        List<String> courses = new ArrayList<>(practice.generateStringList());
 
         /// Task 1 - Join all the strings with a delimiter ";"
         System.out.println("**** Task 1 ****");
@@ -27,6 +29,16 @@ public class SL8 {
         /// Higher order function - A function returns a function.
         System.out.println("**** Task 4 ****");
         System.out.println(courses.stream().filter(courseFilterPredicate(3)).toList());
+
+        /// Replace All
+        System.out.println("**** Task 5 ****");
+        courses.replaceAll(String::toUpperCase);
+        System.out.println(courses);
+
+        /// Remove if
+        System.out.println("**** Task 6 ****");
+        courses.removeIf(c-> c.length()>3);
+        System.out.println(courses);
 
     }
 
