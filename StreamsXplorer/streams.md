@@ -29,6 +29,15 @@ This guide covers Java Streams, a key feature introduced in Java 8 to support fu
 ### 1. Creating Streams
 Streams can be created from collections, arrays, or explicitly using static methods.
 
+- **collection.stream()**: Convert list,set,Map to a stream
+- **Stream.of()**: create a stream of values
+- **Arrays.stream()**: Efficient for primitive arrays to stream
+- **Stream.builder()**: Manually construct a stream
+- **Stream.generate()**: Infinite stream using random values
+- **Stream.iterate()**: Infinite stream using pattern (I want a stream of multiple of 5 only)
+- **IntStream.range()**: Number range stream
+
+
 ### 2. Intermediate Operations
 - **filter(Predicate)**: Selects elements that match a condition.
 - **map(Function)**: Transforms each element.
@@ -64,6 +73,15 @@ Specialized streams (`IntStream`, `LongStream`, `DoubleStream`) for better perfo
 - Keep streams short and readable.
 - Benchmark before using parallel streams.
 - Avoid side-effects inside streams.
+
+---
+
+## Why we need to use Functional Programming ?
+- Declarative style - Focus on what needs to be done instead of how, making code cleaner and easier to understand.
+- Immutability - Data is not modified, reducing unexpected side effects and makes debugging easier.
+- Concise code - Less boilerplate compared to traditional loops and conditions.
+- Thread safety - No shared state means safer parallel execution without race conditions.
+- Parallel processing - Improves performance
 
 ---
 
