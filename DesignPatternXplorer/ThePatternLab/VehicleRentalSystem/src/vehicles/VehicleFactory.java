@@ -2,7 +2,6 @@ package vehicles;
 
 import constants.VehicleTypes;
 import exception.UnsupportedVehicleException;
-import static constants.VehicleTypes.*;
 
 public class VehicleFactory {
 
@@ -19,7 +18,7 @@ public class VehicleFactory {
                 return new Bike();
             }
             default -> {
-                throw new UnsupportedOperationException("Invalid Vehicle type");
+                throw new UnsupportedVehicleException("Invalid Vehicle type");
             }
         }
 
