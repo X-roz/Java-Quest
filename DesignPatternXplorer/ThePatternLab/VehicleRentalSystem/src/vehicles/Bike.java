@@ -1,21 +1,21 @@
 package vehicles;
 
-import constants.RentalConstants;
+import static constants.VehicleTypes.BIKE_TYPE;
 
 public class Bike implements Vehicle {
 
     @Override
     public String getType() {
-        return RentalConstants.BIKE_TYPE;
+        return BIKE_TYPE.getType();
     }
 
     @Override
     public int getRentalPricePerHour() {
-        return RentalConstants.BIKE_PRICE_PER_HOUR;
+        return BIKE_TYPE.getPrice();
     }
 
     @Override
     public int calculateRentalCost(int hours) {
-        return hours>0 ? RentalConstants.BIKE_PRICE_PER_HOUR * hours : 0;
+        return hours>0 ? BIKE_TYPE.getPrice() * hours : 0;
     }
 }

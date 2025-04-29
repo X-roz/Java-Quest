@@ -1,21 +1,21 @@
 package vehicles;
 
-import constants.RentalConstants;
+import static constants.VehicleTypes.TRUCK_TYPE;
 
 public class Truck implements Vehicle {
 
     @Override
     public String getType() {
-        return RentalConstants.TRUCK_TYPE;
+        return TRUCK_TYPE.getType();
     }
 
     @Override
     public int getRentalPricePerHour() {
-        return RentalConstants.TRUCK_PRICE_PER_HOUR;
+        return TRUCK_TYPE.getPrice();
     }
 
     @Override
     public int calculateRentalCost(int hours) {
-        return hours>0 ? RentalConstants.TRUCK_PRICE_PER_HOUR * hours:0;
+        return hours>0 ? TRUCK_TYPE.getPrice() * hours:0;
     }
 }

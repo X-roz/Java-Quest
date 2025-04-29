@@ -1,23 +1,25 @@
 package vehicles;
 
-import constants.RentalConstants;
+import constants.VehicleTypes;
+import exception.UnsupportedVehicleException;
+import static constants.VehicleTypes.*;
 
 public class VehicleFactory {
 
-    public static Vehicle getVehicle(String type){
+    public static Vehicle getVehicle(VehicleTypes type) throws UnsupportedVehicleException {
 
         switch (type){
-            case RentalConstants.TRUCK_TYPE -> {
+            case TRUCK_TYPE -> {
                 return new Truck();
             }
-            case RentalConstants.CAR_TYPE -> {
+            case CAR_TYPE -> {
                 return new Car();
             }
-            case RentalConstants.BIKE_TYPE -> {
+            case BIKE_TYPE -> {
                 return new Bike();
             }
             default -> {
-                return null;
+                throw new UnsupportedOperationException("Invalid Vehicle type");
             }
         }
 
