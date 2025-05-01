@@ -1,3 +1,5 @@
+package structuralPattern;
+
 public class Facade {
 
     /// Facade: One class to control all the functionality and has many dependency of other classes.

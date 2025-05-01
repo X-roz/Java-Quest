@@ -1,3 +1,5 @@
+package structuralPattern;
+
 import lombok.Getter;
 
 import java.util.ArrayList;

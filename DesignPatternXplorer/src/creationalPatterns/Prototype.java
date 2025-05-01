@@ -1,3 +1,5 @@
+package creationalPatterns;
+
 import lombok.Data;
 
 public class Prototype {

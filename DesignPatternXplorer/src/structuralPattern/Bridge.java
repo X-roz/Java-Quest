@@ -1,4 +1,4 @@
-import lombok.experimental.Accessors;
+package structuralPattern;
 
 public class Bridge {
 
