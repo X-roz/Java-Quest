@@ -26,7 +26,7 @@ public class Flyweight {
 /// Flyweight - freeing up memory by shaping/forming and improves efficiency
 /// when we use this - lot of similar objects
 interface FighterPlacement {
-    void position(int x, int y);
+    String position(int x, int y);
 }
 
 enum FighterRank{
@@ -37,8 +37,8 @@ enum FighterRank{
 
 record Fighter(FighterRank rank) implements FighterPlacement{
     @Override
-    public void position(int x, int y) {
-        System.out.println("I am standing at "+x+" , "+y);
+    public String position(int x, int y) {
+       return "I am standing at "+x+" , "+y;
     }
 }
 
@@ -60,6 +60,7 @@ class FighterFactory {
 class Army {
 
     private final List<Fighter> army = new ArrayList<>();
+    Random random = new Random();
 
     public void spawnFighter(FighterRank rank){
         Fighter f = FighterFactory.getFighter(rank);
@@ -69,9 +70,9 @@ class Army {
     public void drawArmy() {
         army.forEach(f->{
             switch (f.rank()){
-                case MAJOR -> System.out.print("M ");
-                case PRIVATE -> System.out.print("P ");
-                default -> System.out.print("S ");
+                case MAJOR -> System.out.println("M "+ f.position(random.nextInt(1,100), random.nextInt(101,200)));
+                case PRIVATE -> System.out.println("P "+ f.position(random.nextInt(1,100), random.nextInt(101,200)));
+                default -> System.out.println("S "+ f.position(random.nextInt(1,100), random.nextInt(101,200)));
             }
         });
     }
