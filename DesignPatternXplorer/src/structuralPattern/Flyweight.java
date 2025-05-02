@@ -25,7 +25,9 @@ public class Flyweight {
 
 /// Flyweight - freeing up memory by shaping/forming and improves efficiency
 /// when we use this - lot of similar objects
-
+interface FighterPlacement {
+    void position(int x, int y);
+}
 
 enum FighterRank{
     MAJOR,
@@ -33,7 +35,12 @@ enum FighterRank{
     PRIVATE;
 }
 
-record Fighter(FighterRank rank) {}
+record Fighter(FighterRank rank) implements FighterPlacement{
+    @Override
+    public void position(int x, int y) {
+        System.out.println("I am standing at "+x+" , "+y);
+    }
+}
 
 ///  Flyweight core pattern
 class FighterFactory {
