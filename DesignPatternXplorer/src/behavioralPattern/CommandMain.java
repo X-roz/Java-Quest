@@ -4,6 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandMain {
+
+    public static void main(String [] args){
+
+        TextEditor receiver = new TextEditor();
+        CommandProcessor sender = new CommandProcessor();
+
+        CommandImpl textProcessor = new CommandImpl(receiver,"Hello");
+        CommandImpl textProcessor1 = new CommandImpl(receiver,"World!");
+        CommandImpl textProcessor2 = new CommandImpl(receiver,"Welcome to the world of game");
+
+        String res = sender.executeCommand(textProcessor)
+                .executeCommand(textProcessor1)
+                .executeCommand(textProcessor2)
+                .undoCommand()
+                .getDataCommand(textProcessor);
+        System.out.println("EDITOR RESULT : "+ res);
+    }
 }
 
 interface Command{
@@ -18,13 +35,13 @@ class TextEditor {
 
     public void addText(String input){
         System.out.println("Adding text : " + input);
-        this.text = this.text +" "+ input;
+        this.text = this.text.isEmpty() ? this.text + input : this.text + " " + input ;
     }
 
     public void undoLast(int length){
         int end = text.length() - length;
         if (end>=0){
-            text = text.substring(0, end+1);
+            text = text.substring(0, end);
         }
         System.out.println("undo action : "+ text);
     }
@@ -37,10 +54,11 @@ class TextEditor {
 // Concrete Command Method
 class CommandImpl implements Command{
 
-    private final TextEditor textEditor = new TextEditor();
+    private final TextEditor textEditor ;
     private final String textToAdd;
 
-    CommandImpl(String text) {
+    CommandImpl(TextEditor editor , String text) {
+        this.textEditor =editor;
         this.textToAdd = text;
     }
 
@@ -71,7 +89,7 @@ class CommandProcessor {
         return this;
     }
 
-    public CommandProcessor undoCommand(Command command) {
+    public CommandProcessor undoCommand() {
         if(!commands.isEmpty()) {
             Command lastCommand = commands.get(commands.size()-1);
             lastCommand.undo();
