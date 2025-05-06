@@ -8,6 +8,7 @@ interface Command{
     void undo();
 }
 
+// Receiver
 class TextEditor {
     String text = "";
 
@@ -25,6 +26,27 @@ class TextEditor {
     }
 
     public String getText() {
-        return text.toString();
+        return text;
+    }
+}
+
+// Concrete Command Method
+class CommandImpl implements Command{
+
+    private final TextEditor textEditor = new TextEditor();
+    private final String textToAdd;
+
+    CommandImpl(String text) {
+        this.textToAdd = text;
+    }
+
+    @Override
+    public void execute() {
+        textEditor.addText(textToAdd);
+    }
+
+    @Override
+    public void undo() {
+        textEditor.undoLast(textToAdd.length());
     }
 }
