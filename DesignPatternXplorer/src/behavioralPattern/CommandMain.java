@@ -65,17 +65,23 @@ class CommandProcessor {
 
     private final List<Command> commands = new ArrayList<>();
 
-    public void executeCommand(Command command) {
+    public CommandProcessor executeCommand(Command command) {
         command.execute();
         commands.add(command);
+        return this;
     }
 
-    public void undoCommand(Command command) {
+    public CommandProcessor undoCommand(Command command) {
         if(!commands.isEmpty()) {
             Command lastCommand = commands.get(commands.size()-1);
             lastCommand.undo();
         } else {
             System.out.println("Nothing to undo");
         }
+        return this;
+    }
+
+    public String getDataCommand(Command command) {
+        return command.getData();
     }
 }
