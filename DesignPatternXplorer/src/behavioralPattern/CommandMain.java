@@ -1,28 +1,32 @@
 package behavioralPattern;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CommandMain {
 }
 
 interface Command{
     void execute();
     void undo();
+    String getData();
 }
 
-// Receiver
+// Request Receiver
 class TextEditor {
     String text = "";
 
     public void addText(String input){
-        System.out.println("Adding text");
+        System.out.println("Adding text : " + input);
         this.text = this.text +" "+ input;
     }
 
     public void undoLast(int length){
-        System.out.println("Undoing last action");
         int end = text.length() - length;
         if (end>=0){
             text = text.substring(0, end+1);
         }
+        System.out.println("undo action : "+ text);
     }
 
     public String getText() {
@@ -48,5 +52,30 @@ class CommandImpl implements Command{
     @Override
     public void undo() {
         textEditor.undoLast(textToAdd.length());
+    }
+
+    @Override
+    public String getData() {
+        return textEditor.getText();
+    }
+}
+
+// Request Sender
+class CommandProcessor {
+
+    private final List<Command> commands = new ArrayList<>();
+
+    public void executeCommand(Command command) {
+        command.execute();
+        commands.add(command);
+    }
+
+    public void undoCommand(Command command) {
+        if(!commands.isEmpty()) {
+            Command lastCommand = commands.get(commands.size()-1);
+            lastCommand.undo();
+        } else {
+            System.out.println("Nothing to undo");
+        }
     }
 }
