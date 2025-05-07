@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class TechnicalTeam extends TicketHandler{
 
     private final String teamName = "TECHNICAL_TEAM";
@@ -6,10 +8,11 @@ public class TechnicalTeam extends TicketHandler{
         super(nextHandler);
     }
 
-    public TicketResponse HandleTicketRequest(String inputTicketDetails) {
+    public void handleTicketRequest(String inputTicketDetails, List<TicketResponse> responses) {
         TicketResponse techTeamResponse = new TicketResponse();
         techTeamResponse.teamName = teamName;
         techTeamResponse.response = "Tech Validated the request : " + inputTicketDetails;
-        return techTeamResponse;
+        responses.add(techTeamResponse);
+        super.handleTicketRequest(inputTicketDetails, responses);
     }
 }

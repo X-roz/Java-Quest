@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerSupportSystem {
@@ -6,10 +7,11 @@ public class CustomerSupportSystem {
 
         TicketHandler ticketHandler = new TechnicalTeam(new BillingTeam(null));
 
-        // User's request
-        ticketHandler.handleTicketRequest("problem statement");
+        List<TicketResponse> ticketResponseFromEachTeam = new ArrayList<>();
 
-        List<TicketResponse> responses = ticketHandler.getTicketResponseFromEachTeam();
-        responses.forEach(System.out::println);
+        // User's request
+        ticketHandler.handleTicketRequest("problem statement", ticketResponseFromEachTeam);
+
+        ticketResponseFromEachTeam.forEach(r -> System.out.println(r.teamName + " : "+ r.response));
     }
 }
