@@ -81,7 +81,9 @@ class WelcomeState extends GameStates {
 
     @Override
     public void playing() {
+        System.out.println("Entering Playing Mode");
         game.changeState(new PlayingState(this.game));
+        game.gameStates.playing();
     }
 
     @Override
@@ -115,12 +117,16 @@ class PlayingState extends GameStates {
 
     @Override
     public void pause() {
+        System.out.println("Entering Break Mode");
         game.changeState(new PauseState(this.game));
+        game.gameStates.pause();
     }
 
     @Override
     public void end() {
+        System.out.println("Entering End Mode");
         game.changeState(new EndState(this.game));
+        game.gameStates.end();
     }
 }
 
@@ -139,7 +145,9 @@ class PauseState extends GameStates {
 
     @Override
     public void playing() {
+        System.out.println("Entering playing mode again ");
         game.changeState(new PlayingState(this.game));
+        game.gameStates.playing();
     }
 
     @Override
@@ -163,7 +171,9 @@ class EndState extends GameStates {
 
     @Override
     public void welcome() {
+        System.out.println("Entering Welcome Mode");
         game.changeState(new WelcomeState(this.game));
+        game.gameStates.welcome();
     }
 
     @Override
