@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.9">
+  <diagram name="Page-1" id="4kIqjWol7rPgkb9kMfYi">
+    <mxGraphModel dx="786" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1ZYCPcExAOJbiFIU3VhF-1" value="&lt;b&gt;USER&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="90" width="210" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="1ZYCPcExAOJbiFIU3VhF-2" value="id String&lt;div&gt;name String&lt;/div&gt;&lt;div&gt;encryptedPassword String&lt;/div&gt;&lt;div&gt;email String&lt;/div&gt;&lt;div&gt;phone String&amp;nbsp;&lt;/div&gt;&lt;div&gt;accountType enum&lt;/div&gt;&lt;div&gt;income decimal&lt;/div&gt;&lt;div&gt;created_ts timestamp&lt;/div&gt;&lt;div&gt;updated_ts timestamp&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="1ZYCPcExAOJbiFIU3VhF-1" vertex="1">
+          <mxGeometry y="26" width="210" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="1ZYCPcExAOJbiFIU3VhF-11" value="Account Type" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1ZYCPcExAOJbiFIU3VhF-12" value="&lt;div&gt;Basic&lt;/div&gt;Premium" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="1ZYCPcExAOJbiFIU3VhF-11" vertex="1">
+          <mxGeometry y="26" width="160" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="6ucfeynvgTzDR8A9fryw-1" value="&lt;b&gt;BUDGET RULE&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="180" width="240" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="6ucfeynvgTzDR8A9fryw-2" value="userId&amp;nbsp; String&lt;div&gt;ruleId string&lt;br&gt;&lt;div&gt;rule&amp;nbsp; &amp;nbsp; &amp;nbsp;String&lt;/div&gt;&lt;div&gt;ruleOutcome String&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;created_ts timestamp&lt;/div&gt;&lt;div&gt;updated_ts timestamp&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="6ucfeynvgTzDR8A9fryw-1">
+          <mxGeometry y="26" width="240" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="6ucfeynvgTzDR8A9fryw-6" value="&lt;b&gt;Transaction&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="210" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="6ucfeynvgTzDR8A9fryw-7" value="userId String&lt;div&gt;transactionId String&lt;br&gt;&lt;div&gt;category enum&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;transactionType enum&lt;/span&gt;&lt;/div&gt;&lt;div&gt;amount decimal&lt;/div&gt;&lt;div&gt;description String&lt;/div&gt;&lt;div&gt;created_ts timestamp&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="6ucfeynvgTzDR8A9fryw-6">
+          <mxGeometry y="26" width="210" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="6ucfeynvgTzDR8A9fryw-8" value="Category" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="40" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="6ucfeynvgTzDR8A9fryw-9" value="&lt;div&gt;Food&lt;/div&gt;&lt;div&gt;Rent&lt;/div&gt;&lt;div&gt;Entertainment&lt;/div&gt;&lt;div&gt;Travel&lt;/div&gt;&lt;div&gt;Investment&lt;/div&gt;&lt;div&gt;Credit&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="6ucfeynvgTzDR8A9fryw-8">
+          <mxGeometry y="26" width="160" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="6ucfeynvgTzDR8A9fryw-10" value="Transaction Type" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="335" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="6ucfeynvgTzDR8A9fryw-11" value="DEBIT&lt;div&gt;CREDIT&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="6ucfeynvgTzDR8A9fryw-10">
+          <mxGeometry y="26" width="160" height="44" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
