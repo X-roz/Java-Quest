@@ -33,6 +33,7 @@ public class PasswordConfig {
     private void init(){
         decodePrivateKey();
         decodePublicKey();
+        log.info("Password configurations are done!");
     }
 
     private void decodePrivateKey(){
