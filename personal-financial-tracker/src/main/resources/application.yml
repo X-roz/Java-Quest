@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: personal-financial-tracker
+  server:
+    port: 8080
+
+password:
+   privateKeyStr: MC4CAQAwBQYDK2VwBCIEIO8Vat2fHKMvQ/4FXoXOrrE03ikiS2KMRrnJj9g9Grzg
+   publicKeyStr: MCowBQYDK2VwAyEAHtfqkef33C9tWZDzp8tQp0+vCytop71JqRpWSZfXHqg=
