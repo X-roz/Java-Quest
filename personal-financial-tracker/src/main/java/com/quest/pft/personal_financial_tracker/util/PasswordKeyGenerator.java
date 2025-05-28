@@ -5,7 +5,6 @@ import lombok.extern.log4j.Log4j2;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.KeyPairGenerator;
-import java.security.spec.EdDSAParameterSpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
