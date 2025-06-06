@@ -24,6 +24,7 @@ public class UserController {
         user.setPhoneNumber(userDto.getPhoneNumber());
 //        user.setEncryptedPassword();
 //        user.setAccountType();
+        log.info("User Created! userId = {}", user.getId());
     }
 
     @GetMapping("login")
