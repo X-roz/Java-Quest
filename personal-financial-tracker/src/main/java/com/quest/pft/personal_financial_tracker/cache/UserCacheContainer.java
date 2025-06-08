@@ -12,4 +12,8 @@ public class UserCacheContainer {
     public void addUserData(User user) {
         userContainer.putIfAbsent(user.getId(), user);
     }
+
+    public void getUserData(String userId) {
+        userContainer.getOrDefault(userId, null);
+    }
 }
