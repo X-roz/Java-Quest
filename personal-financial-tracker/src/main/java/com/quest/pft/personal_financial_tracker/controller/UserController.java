@@ -18,7 +18,5 @@ public class UserController {
     }
 
     @GetMapping("login")
-    private void userLogin() {
-
-    }
+    private void userLogin() {    }
 }
