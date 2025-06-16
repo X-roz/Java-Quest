@@ -12,14 +12,11 @@ public class UserCacheContainer {
     public void addUserData(User user) {
         userContainer.putIfAbsent(user.getId(), user);
     }
-
     public User getUserData(String userId) {
         return userContainer.getOrDefault(userId, null);
     }
-
     public boolean isUserNameExists(String userName) {
         User user = userContainer.values().stream().filter(u -> u.getName().equals(userName)).findFirst().orElse(null);
         return user != null;
     }
-
 }
