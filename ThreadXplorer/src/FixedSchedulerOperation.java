@@ -11,6 +11,20 @@ public class FixedSchedulerOperation {
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 
         // Atomic Integer - Thread safe counter
+        Runnable display = getRunnable(executorService);
+
+        // Starts the executor service
+        executorService.scheduleWithFixedDelay(display, 0, 10, TimeUnit.SECONDS);
+
+        // Wait for the executor service to run the task 10 times.
+        try {
+            executorService.awaitTermination(120, TimeUnit.SECONDS);
+        } catch (Exception e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    private static Runnable getRunnable(ScheduledExecutorService executorService) {
         AtomicInteger count = new AtomicInteger();
 
         // Runnable method - which prints the current time and stops the executor service once counter reaches 10.
@@ -22,16 +36,7 @@ public class FixedSchedulerOperation {
                 executorService.shutdown();
             }
         };
-
-        // Starts the executor service
-        executorService.scheduleWithFixedDelay(display, 0, 10, TimeUnit.SECONDS);
-
-        // Wait for the executor service to run the task 10 times.
-        try {
-            executorService.awaitTermination(120, TimeUnit.SECONDS);
-        } catch (Exception e) {
-            Thread.currentThread().interrupt();
-        }
+        return display;
     }
 
 }
