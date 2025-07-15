@@ -28,15 +28,13 @@ public class FixedSchedulerOperation {
         AtomicInteger count = new AtomicInteger();
 
         // Runnable method - which prints the current time and stops the executor service once counter reaches 10.
-        Runnable display = () -> {
+        return () -> {
             int currentCount = count.incrementAndGet();
-            System.out.println("Current Time : " + LocalTime.now());
             if(currentCount > 10){
                 System.out.println("Scheduler stopped after 10 executions.");
                 executorService.shutdown();
             }
+            System.out.println("Current Time : " + LocalTime.now());
         };
-        return display;
     }
-
 }
