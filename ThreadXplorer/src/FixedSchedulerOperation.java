@@ -7,9 +7,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class FixedSchedulerOperation {
 
     public static void main(String[] args){
+        // Initializing a Fixed Scheduler executor service
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 
+        // Atomic Integer - Thread safe counter
         AtomicInteger count = new AtomicInteger();
+
+        // Runnable method - which prints the current time and stops the executor service once counter reaches 10.
         Runnable display = () -> {
             int currentCount = count.incrementAndGet();
             System.out.println("Current Time : " + LocalTime.now());
@@ -19,8 +23,10 @@ public class FixedSchedulerOperation {
             }
         };
 
+        // Starts the executor service
         executorService.scheduleWithFixedDelay(display, 0, 10, TimeUnit.SECONDS);
 
+        // Wait for the executor service to run the task 10 times.
         try {
             executorService.awaitTermination(120, TimeUnit.SECONDS);
         } catch (Exception e) {
