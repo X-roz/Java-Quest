@@ -33,8 +33,9 @@ public class FixedSchedulerOperation {
             if(currentCount > 10){
                 System.out.println("Scheduler stopped after 10 executions.");
                 executorService.shutdown();
+            }else {
+                System.out.println("Current Time : " + LocalTime.now());
             }
-            System.out.println("Current Time : " + LocalTime.now());
         };
     }
 }
