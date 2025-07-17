@@ -23,6 +23,33 @@ public class LinkedList {
         }
     }
 
+    public static Node removeFirstElement(Node headNode) {
+        return headNode.nextNode;
+    }
+
+    public static Node removeNodeByValue(Node headNode, String value) {
+        if (headNode == null || value.isBlank()){
+            System.out.println("Nothing to remove!");
+            return headNode;
+        } else {
+            if (headNode.value.equals(value)){
+                return removeFirstElement(headNode);
+            }
+            Node currNode = headNode;
+            Node prevNode = headNode;
+            while (currNode != null) {
+                if (currNode.value.equals(value)) {
+                   prevNode.nextNode = currNode.nextNode;
+                   break;
+                } else {
+                    prevNode = currNode;
+                    currNode = currNode.nextNode;
+                }
+            }
+            return headNode;
+        }
+    }
+
     public static void display(Node headNode) {
         if (headNode == null) {
             System.out.println("Nothing to display!");
@@ -39,9 +66,10 @@ public class LinkedList {
 
         Node mainNode = new Node("1", null);
         addNode(mainNode, "2");
-        addNode(mainNode, "3");
 
+
+        System.out.println();
+        System.out.println("After Removing : ");
         display(mainNode);
-
     }
 }
