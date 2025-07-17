@@ -10,6 +10,36 @@ public class LinkedList {
         }
     }
 
+    public static Node addNodeAtIndexPosition(Node headNode, int index, String value) {
+        if (headNode == null && index == 1) {
+          return new Node(value, null);
+        } else if (headNode == null && (index > 1 || index < 0)) {
+            System.out.println("Invalid insert operation!");
+            return null;
+        } else if (headNode != null && index > size(headNode) + 1) {
+            System.out.println("Invalid insert operation!");
+            return headNode;
+        } else {
+            Node newNode = new Node(value, null);
+            Node prevNode = headNode;
+            Node currNode = headNode;
+            int position = 1;
+            while(currNode != null) {
+                if (position == index) {
+                    prevNode.nextNode = newNode;
+                    newNode.nextNode = currNode;
+                    break;
+                }
+                prevNode = currNode;
+                currNode = currNode.nextNode;
+                position += 1;
+            }
+        }
+        return headNode;
+    }
+
+
+
     public static void addNode(Node headNode, String value) {
         Node newNode = new Node(value, null);
         if(headNode.nextNode == null){
@@ -21,6 +51,20 @@ public class LinkedList {
             }
             currNode.nextNode = newNode;
         }
+    }
+
+    public static int size(Node headNode) {
+        int count = 0;
+        if (headNode == null) {
+            System.out.println("Empty Linked List");
+        } else {
+            Node currNode = headNode;
+            while (currNode != null) {
+                count += 1;
+                currNode = currNode.nextNode;
+            }
+        }
+        return count;
     }
 
     public static Node removeFirstElement(Node headNode) {
