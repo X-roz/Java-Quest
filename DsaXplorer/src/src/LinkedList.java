@@ -21,6 +21,17 @@ public class LinkedList {
             return headNode;
         } else {
             Node newNode = new Node(value, null);
+            if (index == 1) {
+                newNode.nextNode = headNode;
+                return newNode;
+            } else if (index == size(headNode) + 1) {
+                Node currNode = headNode;
+                while(currNode.nextNode != null) {
+                    currNode = currNode.nextNode;
+                }
+                currNode.nextNode = newNode;
+                return headNode;
+            }
             Node prevNode = headNode;
             Node currNode = headNode;
             int position = 1;
@@ -126,6 +137,16 @@ public class LinkedList {
 
         System.out.println();
         System.out.println("After Removing : ");
+        display(mainNode);
+
+        System.out.println();
+        System.out.println("After Adding 1 at first : ");
+        mainNode = addNodeAtIndexPosition(mainNode, 1, "1");
+        display(mainNode);
+
+        System.out.println();
+        System.out.println("After Adding 7 at last : ");
+        mainNode = addNodeAtIndexPosition(mainNode, 7, "7");
         display(mainNode);
     }
 }
