@@ -66,7 +66,19 @@ public class LinkedList {
 
         Node mainNode = new Node("1", null);
         addNode(mainNode, "2");
+        addNode(mainNode, "3");
+        addNode(mainNode, "4");
+        addNode(mainNode, "5");
+        addNode(mainNode, "7");
+        addNode(mainNode, "6");
+        addNode(mainNode, "10");
 
+        System.out.println("Before Removing : ");
+        display(mainNode);
+
+        mainNode = removeNodeByValue(mainNode, "10");
+        mainNode = removeNodeByValue(mainNode, "7");
+        mainNode = removeNodeByValue(mainNode, "1");
 
         System.out.println();
         System.out.println("After Removing : ");
