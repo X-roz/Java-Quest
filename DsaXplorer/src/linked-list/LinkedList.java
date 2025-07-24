@@ -49,8 +49,6 @@ public class LinkedList {
         return headNode;
     }
 
-
-
     public static void addNode(Node headNode, String value) {
         Node newNode = new Node(value, null);
         if(headNode.nextNode == null){
